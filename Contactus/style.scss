@@ -1,0 +1,139 @@
+
+
+
+@mixin numberandemail ($color: $--color-greenyellow ){
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 500;
+    color: $color;
+    transition: 0.4s;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+$text-color:#4a6f8a;
+$--color-orangered:#ff612f;
+$--color-greenyellow:#13c4a1;
+
+.container{
+    margin-top: 80px;
+    box-shadow:1px 1px 8px -4px #303034;
+    padding: 40px 30px;
+    border-radius: 8px;
+    .row{
+        .left{
+            position: relative;
+            p{
+                color: $text-color;
+                line-height: 25px;
+            }
+            ul{
+                list-style-type: none;
+                color: $text-color;
+                padding: 0;
+                li{
+                    margin: 7px 0;
+                    i{
+                        color: $--color-greenyellow;
+                        margin-right: 6px;
+                    }
+                }
+            }
+        }
+        .left::after{
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 330px;
+            background-color: #d7d7d7;
+            top: 0;
+            right: 5px;
+        }
+        .right{
+            .row{
+                input,textarea{
+                    padding: 8px;
+                    transition-duration: .4s;
+                    transition-delay: .2s;
+                }
+                input:focus, textarea:focus{
+                    border:1px solid $--color-greenyellow;
+                    box-shadow: none;
+                }
+                
+            }
+            
+            a{
+                text-decoration: none;
+                color:white;
+                background-color: $--color-orangered;
+                display: inline-block;
+                padding:10px 20px;
+                border-radius: 5px;
+                transition: .3s;
+            }
+            a:hover{
+                background-color: $--color-greenyellow;
+            }
+        }
+    }
+    .row{
+        .col-12{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #number{
+                @include numberandemail()
+            }
+            #email{
+                @include numberandemail($--color-orangered)
+            }
+           #number:hover{
+               color: $--color-orangered;
+           }
+           #email:hover{
+               color: $--color-greenyellow;
+           }
+
+           .icon{
+               width: 26%;
+               padding: 16px;
+               ul{
+                   padding: 0;
+                   list-style-type: none;
+                   display: flex;
+                   justify-content: space-between;
+                   li{
+                       a{
+                           text-decoration: none;
+                       }
+                       .fab{
+                           color: #aba5a5;
+                           width: 40px;
+                           height: 40px;
+                           font-size: 18px;
+                           border: 1px solid #aba5a5;
+                           display: flex;
+                           justify-content: center;
+                           align-items: center;
+                           border-radius: 50%;
+                           transition: .6s;
+                       }
+
+                       .fab:hover{
+                           background-color: $--color-greenyellow;
+                           border: 1px solid $--color-greenyellow;
+                           color: white;
+                       }
+                   }
+               }
+           }
+        }
+    }
+}
+
